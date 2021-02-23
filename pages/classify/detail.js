@@ -153,7 +153,6 @@ Page({
          flag: !this.data.flag
        })
     }else{
-      
       wx.showModal({
         title: '提示',
         content: '请选这规格',
