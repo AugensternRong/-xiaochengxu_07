@@ -1,0 +1,34 @@
+/* pages/cart/addsite.wxss */
+.title{
+  width: 100%;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+}
+.input{
+  width: 94%;
+  height: 80rpx;
+  margin: 10rpx auto;
+  border-bottom: solid 2rpx #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.input > input{
+   width: 72%; 
+}
+.botton{
+  border: 0;
+}
+.botton button{
+ width: 706rpx;
+ color: #fff;
+}
+.button-red{
+  background-color: red; /* 红色 */
+}
+.button-green{
+  background-color: green; /* 红色 */
+}

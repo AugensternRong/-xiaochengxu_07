@@ -1,0 +1,32 @@
+<view class='class-container'>
+  <view class='header'>
+    <input class="input" type="text" placeholder="搜索" placeholder-style="color: #ccc" />
+  </view>
+  <view class='left'>
+    <view>
+      <view wx:for='{{ allList }}' wx:key='index' data-index="{{index}}" class=" {{num == index?'active':''}}" bindtap='active'>{{ item }}</view>
+    </view>
+  </view>
+   <scroll-view>
+    <view class='right'>
+    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" duration="400"> 
+      <view wx:for="{{movies}}" wx:key="index" >    
+        <swiper-item> 
+          <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>    
+        </swiper-item>    
+      </view> 
+    </swiper> 
+    <view class='list'>
+      <view wx:for='{{ list }}' wx:key='index' bindtap='details' data-id='{{item.id}}'>
+        <view>
+          {{ list.icon }}
+          <image src='{{ item.icon }}'></image>
+        </view>
+        <view class='text'>
+          {{ item.name }}
+        </view> 
+      </view>
+    </view>
+  </view>
+  </scroll-view> 
+</view>

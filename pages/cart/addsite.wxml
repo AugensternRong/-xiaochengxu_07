@@ -1,0 +1,20 @@
+<view class='content'>
+  <view class='title'> <text> 新增地址 </text> </view>
+  <view class='input'>
+    <text>联系人</text>
+    <input type='text' placeholder='姓名' data-val='{{ value }}' bindblur='blur' ></input>
+  </view>
+  <view class='input' wx:for='{{ arr }}' wx:key='{{ index }}'>
+    <text>{{ item.name }}</text>
+    <input type='text' value='{{ val }}' placeholder='{{ item.pls }}' ></input>
+  </view>
+  <view class='input botton'>
+    <button class="button-red" bindtap='addSite'>保存</button>
+  </view>
+  <view class='input botton'>
+    <button class="button-green" bindtap=''>从微信中读取</button>
+  </view>
+  <view class='input botton'>
+    <button bindtap=''>取消</button>
+  </view>
+</view>

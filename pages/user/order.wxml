@@ -1,0 +1,41 @@
+<view class='content'>
+  <view class='title'>
+    <text>订单列表</text>
+  </view>
+  <view class='tap'>
+    <text class=" text {{inde == index?'active':''}}" data-inde='{{ index }}' wx:for='{{ title }}' wx:key='index' bindtap='inde'>{{ item }}</text>
+  </view>
+  <view wx:if='{{ data.length }}'>
+    <view class='detail' wx:for='{{ data }}' wx:key='index' >
+      <view class='time'>
+        <view>
+          <text>下单时间：</text>
+          <text>{{ item.dateAdd }}</text>
+        </view>
+        <view>
+          <text style='color: red'>{{ item.statusStr }}</text>
+        </view>
+      </view>
+      <view class='order'>
+        <text>订单号：</text>
+        <text>{{ item.orderNumber }}</text>
+      </view>
+      <view class='image'>
+        <image src='{{  }}'></image>
+      </view>
+      <view class='price'>
+        <view style='color: red'>
+          <text>合计：</text>
+          <text> {{ item.amountReal }} </text>
+        </view>
+        <view class='click'>
+          <view data-ding='{{ item.id }}' style='border-color: #ccc; color: #ccc' bindtap='cancel'>取消订单</view>
+          <view>立即支付</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:else>
+    <text>您还没有订单</text>
+  </view>
+</view>

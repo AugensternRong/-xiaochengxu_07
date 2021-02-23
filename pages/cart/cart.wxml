@@ -1,0 +1,48 @@
+<scroll-view class="scroll" scroll-y="true">
+  <view><text> 购物车 </text></view>
+  <view class="separate"></view>
+  <view wx:for="{{ data }}" wx:key='index'>
+    <view class="cart_container">
+    <!-- 选择图标  -->
+      <icon wx:if='{{ item.flag }}' type="success" color="red"  data-index="{{index}}" class='check' />
+      <icon wx:else type="circle"  data-index="{{index}}" class='check' />
+      <image class="item-image" src="{{item.url}}"></image>
+      <view class="column">
+        <text class="title" style='font-size:30rpx'>{{item.name}}</text>
+        <view>
+          <text style='font-size:30rpx'>规格: </text>
+          <text>{{ item.dname[0] }}:</text>
+          <text>{{ item.xname[0] }} </text>
+          <text>{{ item.dname[1] }}:</text>
+          <text>{{ item.xname[1] }} </text>
+        </view>
+        
+        <view class="row">
+          <text class="sku-price">￥</text>
+          <text class="sku-price">{{item.price }}</text>
+          <view class="sku">
+            <view class='ddd' data-index='{{ index }}' catchtap='jan' >-</view>
+            {{ item.sum }}
+            <view class='ddd' data-index='{{ index }}' catchtap='ja'>+</view>
+          </view>
+        </view>
+      </view>
+      <view data-inde='{{ index }}' class='check' bindtap='remove' style='margin-right: 3%'>X</view>
+    </view>
+    <view class="separate"></view>
+  </view>
+</scroll-view>
+<image src="http://img5.imgtn.bdimg.com/it/u=1384922648,609523089&fm=27&gp=0.jpghttp://img0.imgtn.bdimg.com/it/u=225520347,606807279&fm=200&gp=0.jpg" wx:if="{{!data}}"></image>
+
+<view class="bottom_total">
+  <view class="bottom_line"></view>
+  <view class="row">
+    {{ item }}
+    <icon wx:if='{{ !item.flag }}' type="success_circle" color="red" data-f='{{  }}' class='check' />
+    <icon wx:else type="circle" data-f='{{  }}' class='check' />
+    <text class="small_text">全选</text>
+    <text>合计:￥{{ price }} </text> 
+    <text class="price"></text>
+    <button class="button-red" bindtap='submitClone' formType="submit">下单</button>
+  </view>
+</view>

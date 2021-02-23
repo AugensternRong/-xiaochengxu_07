@@ -1,0 +1,59 @@
+/* pages/user/order.wxss */
+.content{
+  font-size: 28rpx;
+}
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80rpx;
+}
+.tap{
+  width: 100%;
+  height: 60rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.tap .text{
+  height: 100%;
+  border-bottom: solid 2rpx #fff;
+}
+.tap .active{
+  border-bottom: solid 2rpx red;
+  color: red;
+}
+.time {
+  height: 60rpx;
+  width: 90%;
+  padding-left: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order{
+  height: 60rpx;
+  width: 90%;
+  padding-left: 5%;
+}
+.price{
+  height: 120rpx;
+  width: 90%;
+  padding-left: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.price .click{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.price .click > view{
+  width: 150rpx;
+  text-align: center;
+  border: solid 1rpx red;
+  margin-left: 10rpx;
+  color: red;
+}

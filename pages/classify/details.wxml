@@ -1,0 +1,25 @@
+<!--pages/classify/details.wxml-->
+<view class='title'>
+   <text>分类商品</text>
+</view>
+<view class='item-box' wx:if='{{ !flag }}' >
+  <view wx:for='{{ detailslist }}' data-id="{{ item.id }}" wx:key='{{ index }}' class='item' bindtap='go' >
+    <view>
+      <image src='{{ item.pic }}'></image>
+    </view>
+     <view class='itemname'>
+      <text>{{ item.name }}</text>
+    </view> 
+    <view class='price'>
+         <text style='color: red'>￥{{ item.pingtuanPrice }}</text> 
+      <text style='color: #ccc'> 已售{{ item.stores }} </text>  
+    </view>
+  </view>
+</view>
+<view class='item-box' wx:if='{{ flag }}'>
+  <view>
+    <text>
+      {{ name }} 暂时还没有商品
+    </text>
+  </view>
+</view>

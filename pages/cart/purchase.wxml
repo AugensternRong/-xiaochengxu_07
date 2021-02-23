@@ -1,0 +1,54 @@
+<!--pages/cart/purchase.wxml-->
+<view> <text>确认订单</text> </view>
+<view class='content'>
+  <view class='site'>
+    <text> 收货人姓名 ： {{ title }}</text>
+  </view>
+  <view class='title'>
+    <text>
+      商品列表
+    </text>
+  </view>
+  <view class='main'>
+    <view wx:for='{{ data }}' wx:key='index' class="main-box">
+      <view class='image'>
+        <image src='{{ item.url }}'></image>
+      </view>
+      <view class='name'>
+        <view>
+          <view> <text>{{ item.name }}</text> </view>
+          <view>
+            <text style='font-size:30rpx'>规格: </text>
+            <text>{{ item.dname[0] }}:</text>
+            <text>{{ item.xname[0] }} </text>
+            <text>{{ item.dname[1] }}:</text>
+            <text>{{ item.xname[1] }} </text>
+          </view>
+        </view>
+         <view class='price'>
+          <text>{{ item.price }}</text>
+          <text> x{{ item.sum }} </text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='input'>
+    <text>配送方式</text>
+    <text>包邮</text>
+  </view>
+  <view>
+    <view class='input'>
+      <text>备注</text>
+      <input type='text' placeholder='姓名备注请输入'></input>
+    </view>
+  </view>
+
+</view>
+<view class="bottom_total">
+  <view class="row">
+    <text class="price">合计:￥{{ price }}</text>
+    <button class="button-red" bindtap='submitS' formType="submit">提交订单</button>
+  </view>
+</view>
+

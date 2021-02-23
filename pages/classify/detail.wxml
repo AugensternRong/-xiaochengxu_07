@@ -1,0 +1,104 @@
+<view class='content' >
+  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="600">
+      <view wx:for="{{ obj.pics }}" wx:key="{{ item }}">    
+        <swiper-item> 
+          <image src='{{ item.pic }}' class="slide-image" mode="aspectFill"/>    
+        </swiper-item>    
+      </view> 
+    </swiper> 
+    <view class='title'>
+      <view> {{ obj.basicInfo.name }} </view>
+      <view style='font-size: 26rpx; color: #ccc;'> {{ obj.basicInfo.name }} </view>
+      <view class='price'>
+        <view>
+          <text style='color: red;'>￥{{ obj.basicInfo.minPrice }}</text>
+          <text style='font-size: 26rpx; color: #ccc;'>￥{{ obj.basicInfo.originalPrice }}</text>
+        </view>
+        <view>
+          <text style='font-size: 26rpx; color: #ccc;'>已售{{ obj.basicInfo.minScore }}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 填充背景色 -->
+    <view class='background'></view>
+    <view class='select'  wx:if='{{ obj.properties.length }}' bindtap='flag'>
+      <view class='select-box'>
+        <view>选择规格:</view>
+        <view>
+            <text wx:for='{{ obj.properties }}' wx:key='index'>{{ item.name }}</text>
+        </view>
+      </view>
+      <view>
+        <icon type="download" size="24" color='black'/>
+      </view>
+    </view>
+    <!-- 蒙板  -->
+     <view class='mengban' wx:if='{{ flag }}'>
+      <view class='guige'>
+        <view class='price'>
+          <image src='{{ obj.pics[0].pic }}'></image>
+          <view>
+            <view><text>{{ obj.basicInfo.name }}</text></view>
+            <view style='color: red;margin-top: 15rpx'><text>￥{{ obj.basicInfo.originalPrice }}</text></view>
+          </view>
+        </view>
+        <view>
+          <view wx:for='{{ obj.properties }}' wx:key='index'  wx:for-index="index" wx:for-item="item2">
+            <view>{{ item2.name }}</view>
+            <view class='gui'>
+            <!-- 选择规格  -->
+              <view wx:for='{{ item2.childsCurGoods }}' data-did='{{ obj.pics[0].goodsId }}' data-xxid='{{ item2.id }}' data-xid='{{ item.id }}' data-index='{{ index }}'  wx:key='item2' wx:for-index="index2" bindtap='inde' data-xi='{{ index2 }}'  class="gui-chil {{item.flag?'active':''}}">
+                <text>{{ item.name }}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='num'>
+          <view>购买数量</view>
+          <view>
+            <view catchtap='jian'>-</view>
+            <view>{{ num }}</view>
+            <view catchtap='ja'>+</view>
+          </view>
+        </view>
+        <view class='botton' data-price='{{ obj.basicInfo.originalPrice }}' data-name='{{ obj.basicInfo.name }}' catchtap='add' data-gid='{{ obj.pics[0].goodsId }}' data-img='{{  obj.pics[0].pic }}'>
+          <text>加入购物车11</text>
+        </view>
+        <view class='cancel' bindtap='flag'>
+          <icon type="cancel" size="40" color='red'/>
+        </view>
+      </view>
+    </view> 
+     <!-- 填充背景色 -->
+    <view class='background'></view>
+    <!-- 商品介绍 / 商品评价  -->
+    <view class='commod'>
+      <view data-i='0' class=" {{i == 0?'active':''}}" bindtap='top'>商品介绍</view>
+      <view data-i='1' class=" {{i == 1?'active':''}}" bindtap='top'>商品评价</view>
+    </view>
+    <view class='templay' >
+     <import src="../../wxParse/wxParse.wxml"/> 
+       <template is="wxParse" data="{{wxParseData:article.nodes}}" wx:if='{{ i == 0 }}'/> 
+       <view wx:else>
+          没有
+       </view>  
+    </view>
+    <view style='width: 100%; height: 100rpx;'></view>
+    <view class='nav-botton'>
+      <view>
+        <icon type="success" size="40" color="red"/>
+      </view>
+      <view class='image' catchtap='go'>
+          <view class='sun'>{{ sum }}</view>
+          <image src="../../image/cart.png"></image>
+      </view>
+      <view class='mai'>
+        <text>￥{{ obj.basicInfo.minPrice }}</text>
+        <text>原价购买</text>
+      </view>
+      <view class='pin' style='color: #fff;'>
+        <!-- <text>￥0.1</text> -->
+        <text catchtap='flag'>加入购物车</text>
+      </view>
+    </view>
+</view>

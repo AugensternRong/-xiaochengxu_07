@@ -1,0 +1,72 @@
+.class-container{
+  font-size: 28rpx;
+}
+.header{
+  width: 100%;
+  height: 80rpx;
+  padding-left: 50rpx; 
+  margin-top: 20rpx; 
+  border-bottom: solid 1rpx #ccc;
+}
+.header input{
+  border: solid 1rpx #ccc;
+  border-radius: 40rpx;
+  width: 400rpx;
+}
+.left{
+  width: 100%;
+  position: fixed;
+  left: 0;
+}
+.left > view > view{
+  border-left: solid 3rpx #fff;
+  width: 28%;
+  height: 80rpx;
+  text-align: center;
+   line-height: 80rpx; 
+}
+.left > view > .active{
+  color: #d81e06;
+  border-left:solid 3rpx #d81e06; 
+}
+.right{
+   position: fixed; 
+  right: 0;
+  width: 72%;
+  height: 1000rpx; 
+  border-left: solid 1rpx #ccc;
+  overflow-y: auto;
+}
+.right .swiper{
+  width: 90%;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+  margin-left: 5%;
+  height: 200rpx;
+}
+.right .list image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.right .list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+}
+.right .list > view{
+  width: 33%;
+  margin-top: 20rpx;
+  height: 180rpx; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.right .list .text{
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
